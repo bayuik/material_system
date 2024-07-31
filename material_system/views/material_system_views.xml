@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="material_system_tree">
+        <field name="name">material.system.tree</field>
+        <field name="model">material.system</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="material_type"/>
+                <field name="price_unit"/>
+                <field name="res_partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="material_system_form">
+        <field name="name">material.system.form</field>
+        <field name="model">material.system</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Material Name"/>
+                        </h1>
+                    </div>
+                    <group>
+
+                        <group>
+                            <field name="code"/>
+                            <field name="material_type"/>
+                        </group>
+                        <group>
+                            <field name="price_unit"/>
+                            <field name="res_partner_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="material_system_search">
+        <field name="name">material.system.search</field>
+        <field name="model">material.system</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="material_type_fabric" string="Fabric" domain="[('material_type', '=', 'fabric')]"/>
+                <filter name="material_type_jeans" string="Jeans" domain="[('material_type', '=', 'jeans')]"/>
+                <filter name="material_type_cotton" string="Cotton" domain="[('material_type', '=', 'cotton')]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_material_system">
+        <field name="name">Material System</field>
+        <field name="res_model">material.system</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
