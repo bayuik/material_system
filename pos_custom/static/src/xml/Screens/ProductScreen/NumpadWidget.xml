@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+   <t t-name="NumpadWidget" t-inherit="point_of_sale.NumpadWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('mode-button')][2]" position="replace">
+           <button class="mode-button" t-att-class="{
+                        'selected-mode': props.activeMode === 'discount',
+                        'disabled-mode': true
+                    }"
+                   t-att-disabled="true"
+                   t-on-click="changeMode('discount')">Disc</button>
+        </xpath>
+       <xpath expr="//button[hasclass('mode-button')][3]" position="replace">
+         <button class="mode-button" t-att-class="{
+                    'selected-mode': props.activeMode === 'price',
+                    'disabled-mode': true
+                }" t-att-disabled="true"
+                 t-on-click="changeMode('price')">Price</button>
+        </xpath>
+   </t>
+</templates>
+
